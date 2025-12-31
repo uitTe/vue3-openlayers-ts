@@ -1,0 +1,29 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node", // 关键：解决模块导入解析问题
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    // Vue 特有配置（关键）
+    "types": ["vite/client"], // 识别 Vue 宏语法
+    "paths": {
+      "@/*": ["./src/*"] // 可选，如有路径别名需配置
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue" // 关键：TS 要识别 .vue 文件
+  ],
+  "exclude": ["node_modules"]
+}
